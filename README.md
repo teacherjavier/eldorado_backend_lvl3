@@ -149,7 +149,8 @@ La documentación completa e interactiva de la API, generada con Swagger, está 
        8.- Ir a http://localhost:3000/api-docs en el navegador y comprobar que los datos aún existen desde la API, con GetAllItems. 
        9.- Alternativamente, en http://localhost:3000/api/v1/items también nos mostrará una lista de items existentes en la Base de Datos.
 
-       ⚠️ **Advertencia Importante:** La suite de tests es destructiva y borrará los datos de la tabla `items` al ejecutarse. Si la corremos entre estos dos procesos, no podremos comprobar la persistencia de datos.
+       ⚠️ **Advertencia Importante:** La suite de tests es destructiva y borrará los datos de la tabla `items` al ejecutarse. 
+       Si la corremos entre estos dos procesos, no podremos comprobar la persistencia de datos.
 
 
 ---
