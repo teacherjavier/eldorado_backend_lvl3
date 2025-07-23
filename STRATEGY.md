@@ -24,9 +24,12 @@ Para mejorar la experiencia de usuario y la capacidad de gestión, el concepto d
 
 Funcionalidad:
 
-Categorías: Permitiría agrupar items (Electrónica > Cámaras > Réflex), facilitando la navegación y el descubrimiento.
+- Categorías: Permitiría agrupar items (Electrónica > Cámaras > Réflex), facilitando la navegación y el descubrimiento.
 
-Características: Añadir atributos específicos a cada item (color: "rojo", memoria: "256GB") posibilitaría la creación de filtros de búsqueda avanzados (búsqueda por facetas).
+- Características: Añadir atributos específicos a cada item (color: "rojo", memoria: "256GB") posibilitaría la creación d- e filtros de búsqueda avanzados (búsqueda por facetas).
+
+- Gestión de Inventario: Implementar un sistema para registrar y controlar el stock de cada item por proveedor. Esto es fundamental para evitar ventas sin stock, 
+  gestionar las compras y mostrar la disponibilidad real a los usuarios.
 
 Impacto en el Modelo de Datos:
 
@@ -35,6 +38,10 @@ Se crearía una tabla categories (id, name, parent_category_id).
 Se añadiría una tabla intermedia item_categories (item_id, category_id) para gestionar la relación muchos a muchos.
 
 De forma similar, se podrían implementar tablas como features y item_features para los atributos.
+
+Para la gestión de inventario, se añadirían tablas como suppliers (proveedores) y una tabla de relación item_stock que contenga item_id, supplier_id, quantity y cost_price (precio de coste).
+
+
 
 3. 💹 Inteligencia de Precios Dinámica
 Para items que representan activos cuyo valor fluctúa (como criptomonedas, acciones o coleccionables), un precio estático no es viable.

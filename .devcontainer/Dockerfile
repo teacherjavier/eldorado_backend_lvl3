@@ -1,12 +1,11 @@
 FROM node:20
 
-# Install basic development tools
-RUN apt update && apt install -y less man-db sudo
+# Instala herramientas básicas de desarrollo
+RUN apt-get update && apt-get install -y less man-db sudo
 
-# Ensure default `node` user has access to `sudo`
-ARG USERNAME=node
-RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
+# Asegura que el usuario 'node' por defecto tenga acceso a sudo sin contraseña
+RUN echo "node ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/node \
+    && chmod 0440 /etc/sudoers.d/node
 
-# Set `DEVCONTAINER` environment variable to help with orientation
-ENV DEVCONTAINER=true
+# Establece el directorio de trabajo por defecto para cualquier comando
+WORKDIR /app

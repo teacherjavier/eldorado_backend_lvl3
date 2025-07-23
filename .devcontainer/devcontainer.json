@@ -1,8 +1,21 @@
-// See https://containers.dev/implementors/json_reference/ for configuration reference
 {
 	"name": "Coding Interview Backend Level 3",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-  "remoteUser": "node"
+
+	// Usa el docker-compose base y el de vscode para fusionar configuraciones
+	"dockerComposeFile": [
+		"docker-compose.yml",
+		"docker-compose.vscode.yml"
+	],
+
+	// El servicio al que VS Code se conectará
+	"service": "api",
+
+	// La carpeta que se abrirá por defecto en VS Code dentro del contenedor
+	"workspaceFolder": "/app",
+
+	// El usuario con el que se operará
+	"remoteUser": "node",
+
+	// Comando que se ejecuta al crear el contenedor para arreglar permisos
+	"postCreateCommand": "sudo chown -R node:node /app"
 }

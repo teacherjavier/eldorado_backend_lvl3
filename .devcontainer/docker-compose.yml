@@ -1,3 +1,5 @@
+name: eldorado-app
+
 services:
   db:
     image: postgres:14-alpine
@@ -8,9 +10,8 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: eldorado_db
     volumes:
-      - pgdata:/var/lib/postgresql/data           # datos persistentes
+      - eldorado-pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-
     ports:
       - "5432:5432"
     healthcheck:
@@ -23,7 +24,6 @@ services:
   api:
     container_name: eldorado-api-dev
     build:
-      # el docker‑compose está dentro de .devcontainer; '..' apunta a la raíz del proyecto
       context: ..
       dockerfile: .devcontainer/Dockerfile
     user: node
@@ -37,10 +37,14 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ..:/app:cached               # código fuente
-      - node_modules:/app/node_modules
-    command: sh -c "sudo chown -R node:node /app && sleep infinity"   
+      - ..:/app:cached
+      - eldorado-nodemodules:/app/node_modules
+    command: sh -c "sudo chown -R node:node /app && sleep infinity"
 
+# --- CAMBIO CLAVE AQUÍ ---
+# Declaramos que nuestros volúmenes son externos.
 volumes:
-  pgdata:
-  node_modules:
+  eldorado-pgdata:
+    external: true
+  eldorado-nodemodules:
+    external: true
