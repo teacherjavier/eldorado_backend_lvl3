@@ -15,7 +15,7 @@ Se ha dado respuesta a cada uno de los requisitos fundamentales de la tarea:
 * **Persistencia de Datos:**
     * Se ha elegido **PostgreSQL** como motor de base de datos relacional.
     * El servicio se ejecuta en un entorno **Docker**, y los datos de la base de datos se persisten en un **volumen de Docker**, garantizando que la información no se pierda tras reiniciar o reconstruir los contenedores.
-
+    
 * **Código Listo para Producción:**
     * La solución se ha construido sobre una **Arquitectura Limpia (Hexagonal)**, que separa la lógica de negocio de los detalles de infraestructura, garantizando la mantenibilidad y escalabilidad.
     * Se utiliza **Docker y Docker Compose** para un entorno de desarrollo y despliegue consistente y reproducible.
@@ -61,10 +61,12 @@ Este proyecto está configurado para funcionar de dos maneras: automáticamente 
 
 ### Opción 1: Entorno Automatizado (Recomendado con VS Code)
 
-> 💡 **Requisitos:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) y la extensión [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) para VS Code.
+> ⚠️ **Advertencia Importante:** La suite de tests es destructiva y borrará los datos de la tabla `items` al ejecutarse. No la ejecutes si tienes datos importantes en tu base de datos de desarrollo.
+
+> 💡 **Requisitos:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y corriendo antes de empezar, y la extensión [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) para VS Code, instalada.
 
 1.  Abre la carpeta del proyecto en VS Code.
-2.  Haz clic en la notificación **"Reopen in Container"** que aparecerá abajo a la derecha.
+2.  Haz clic en la notificación **"Reopen in Container"** que aparecerá abajo a la derecha (o usa Ctrl+Shift+P y busca en el menú de comandos **"Dev Containers: Rebuild and Reopen in Container"**, y haz clic ahí.
 3.  Espera a que VS Code construya y levante el entorno.
 4.  Una vez dentro, abre la terminal integrada de VS Code (`Ctrl + ñ`). Ya estarás dentro del contenedor y en la carpeta correcta.
 
@@ -87,6 +89,8 @@ Este proyecto está configurado para funcionar de dos maneras: automáticamente 
 ### Opción 2: Entorno Manual (Cualquier Terminal)
 
 > ⚠️ **Advertencia Importante:** La suite de tests es destructiva y borrará los datos de la tabla `items` al ejecutarse. No la ejecutes si tienes datos importantes en tu base de datos de desarrollo.
+
+> 💡 **Requisitos:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y corriendo antes de empezar.
 
 Todos los comandos deben ejecutarse desde la **raíz del proyecto**.
 
@@ -131,6 +135,9 @@ La documentación completa e interactiva de la API, generada con Swagger, está 
 
 **[http://localhost:3000/api-docs](http://localhost:3000/api-docs)**
 
+** Persistencia de datos**:  Se puede comprobar corriendo la API, creando y modificando items, cerrando el entorno y volviendo a abrirlo. 
+Ejemplo: Abrir el proyecto en VSCode, levantar la API con "npm run dev", ir a http://localhost:3000/api-docs en el navegador, crear items, cerrar el entorno. 
+Abrir el proyecto en un terminal de PowerShell, levantar el entorno con "docker-compose --env-file ./.env -f .devcontainer/docker-compose.yml up --build -d", levantar la API con "docker-compose -f .devcontainer/docker-compose.yml exec api npm run dev", ir a http://localhost:3000/api-docs en el navegador y comprobar que los datos aún existen desde la API, con GetAllItems. Alternativamente, en http://localhost:3000/api/v1/items también nos mostrará una lista de items existentes en la Base de Datos.
 ---
 
 ## 🔮 Propuestas de Mejora y Visión Estratégica (Resumen)
