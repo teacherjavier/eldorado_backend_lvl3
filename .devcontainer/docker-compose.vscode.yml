@@ -1,0 +1,6 @@
+# En .devcontainer/docker-compose.vscode.yml
+services:
+  api:
+    container_name: eldorado-api-vscode
+  db:
+    container_name: eldorado-db-vscode

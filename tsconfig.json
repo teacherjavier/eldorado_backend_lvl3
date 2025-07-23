@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      /* Opciones del Compilador */
+      "target": "ES2022",                          // Compila a una versión moderna de JavaScript
+      "module": "NodeNext",                         // Usa el sistema de módulos moderno de Node.js
+      "moduleResolution": "NodeNext",               // <-- ESTA ES LA LÍNEA CLAVE QUE FALTABA
+      "outDir": "./dist",                           // Carpeta donde se guardará el código compilado
+      "rootDir": "./src",                           // Carpeta raíz del código fuente
+  
+      /* Opciones de Tipado Estricto */
+      "strict": true,                               // Habilita todas las comprobaciones de tipo estrictas
+      "esModuleInterop": true,                      // Permite la interoperabilidad entre módulos CommonJS y ES
+      "skipLibCheck": true,                         // Evita la comprobación de tipos en los archivos de declaración de las librerías
+      "forceConsistentCasingInFileNames": true      // Asegura que las mayúsculas/minúsculas en los nombres de archivo sean consistentes
+    },
+    "include": ["src/**/*"],                        // Incluye todos los archivos dentro de la carpeta 'src' para la compilación
+    "exclude": ["node_modules", "**/*.test.ts"]     // Excluye la carpeta node_modules y los archivos de test
+  }
