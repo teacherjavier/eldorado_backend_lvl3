@@ -143,7 +143,7 @@ La documentación completa e interactiva de la API, generada con Swagger, está 
        2.- Levantar la API con "npm run dev"
        3.- Ir a http://localhost:3000/api-docs en el navegador
        4.- Crear items, cerrar el entorno (cerrando VSCode, o haciendo clic en el menú "Archivo", "Cerrar conexión remota).       
-       5- Abrir el proyecto en un terminal (PowerShell, por ejemplo)
+       5.- Abrir el proyecto en un terminal (PowerShell, por ejemplo)
        6.- Levantar el entorno con "docker-compose --env-file ./.env -f .devcontainer/docker-compose.yml up --build -d"
        7.- Levantar la API con "docker-compose -f .devcontainer/docker-compose.yml exec api npm run dev"
        8.- Ir a http://localhost:3000/api-docs en el navegador y comprobar que los datos aún existen desde la API, con GetAllItems. 
