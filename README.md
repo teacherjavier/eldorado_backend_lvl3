@@ -135,9 +135,23 @@ La documentación completa e interactiva de la API, generada con Swagger, está 
 
 **[http://localhost:3000/api-docs](http://localhost:3000/api-docs)**
 
-** Persistencia de datos**:  Se puede comprobar corriendo la API, creando y modificando items, cerrando el entorno y volviendo a abrirlo. 
-Ejemplo: Abrir el proyecto en VSCode, levantar la API con "npm run dev", ir a http://localhost:3000/api-docs en el navegador, crear items, cerrar el entorno. 
-Abrir el proyecto en un terminal de PowerShell, levantar el entorno con "docker-compose --env-file ./.env -f .devcontainer/docker-compose.yml up --build -d", levantar la API con "docker-compose -f .devcontainer/docker-compose.yml exec api npm run dev", ir a http://localhost:3000/api-docs en el navegador y comprobar que los datos aún existen desde la API, con GetAllItems. Alternativamente, en http://localhost:3000/api/v1/items también nos mostrará una lista de items existentes en la Base de Datos.
+ **Persistencia de Datos:**
+    * Se puede comprobar corriendo la API, creando y modificando items, cerrando el entorno y volviendo a abrirlo. 
+    * Ejemplo:
+       1.- Abrir el proyecto en VSCode
+       2.- Levantar la API con "npm run dev"
+       3.- Ir a http://localhost:3000/api-docs en el navegador
+       4.- Crear items, cerrar el entorno (cerrando VSCode, o haciendo clic en el menú "Archivo", "Cerrar conexión remota).
+       
+       5- Abrir el proyecto en un terminal (PowerShell, por ejemplo)
+       6.- Levantar el entorno con "docker-compose --env-file ./.env -f .devcontainer/docker-compose.yml up --build -d"
+       7.- Levantar la API con "docker-compose -f .devcontainer/docker-compose.yml exec api npm run dev"
+       8.- Ir a http://localhost:3000/api-docs en el navegador y comprobar que los datos aún existen desde la API, con GetAllItems. 
+       9.- Alternativamente, en http://localhost:3000/api/v1/items también nos mostrará una lista de items existentes en la Base de Datos.
+
+       ⚠️ **Advertencia Importante:** La suite de tests es destructiva y borrará los datos de la tabla `items` al ejecutarse. Si la corremos entre estos dos procesos, no                podremos comprobar la persistencia de datos.
+
+
 ---
 
 ## 🔮 Propuestas de Mejora y Visión Estratégica (Resumen)
