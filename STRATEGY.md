@@ -3,6 +3,7 @@
 El servicio actual constituye una base sólida y bien diseñada. Las siguientes propuestas describen un plan de ruta para evolucionar esta base hacia un sistema completo, robusto y listo para operar a escala en un entorno de producción, cubriendo áreas críticas de negocio, producto y tecnología.
 
 
+
 **1. 🛡️ Seguridad y Control de Acceso:**
 La seguridad no es una característica, sino un requisito fundamental. Para proteger la API y los datos de los usuarios, el siguiente paso crítico
 es implementar un sistema de autenticación y autorización.
@@ -18,6 +19,7 @@ es implementar un sistema de autenticación y autorización.
 
 - Control de Errores Específico:
   - El manejador de errores se extendería para gestionar AuthenticationError (401 Unauthorized) y ForbiddenError (403 Forbidden).
+
 
 
 **2. 📚 Catálogo de Productos Avanzado**
@@ -36,6 +38,7 @@ Impacto en el Modelo de Datos:
 - De forma similar, se podrían implementar tablas como features y item_features para los atributos.
 - Para la gestión de inventario, se añadirían tablas como suppliers (proveedores) y una tabla de relación item_stock que contenga item_id, supplier_id, quantity,
   cost_price (precio de coste).
+
 
 
 **3. 💹 Inteligencia de Precios Dinámica:**
